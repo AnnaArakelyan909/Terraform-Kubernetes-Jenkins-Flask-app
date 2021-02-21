@@ -1,11 +1,7 @@
 terraform {
   required_providers {
     kubernetes = {
-      source = "hashicorp/kubernetes"
-    }
-    docker = {
-      source = "kruzwerker/docker"
-    }
+      source = "hashicorp/kubernetes"    }
   }
 }
 
@@ -14,8 +10,8 @@ provider "kubernetes" {
 }
 resource "kubernetes_deployment" "flask-app" {
   metadata {
-    name = "flask-app"
-    
+    name = "flask-app-deployment"
+
   }
 
   spec {
@@ -57,11 +53,11 @@ resource "kubernetes_deployment" "flask-app" {
 }
 resource "kubernetes_service" "flask-app" {
   metadata {
-    name = "flask-app-service"
+    name = "flask-app"
   }
   spec {
     selector = {
-      App = kubernetes_deployment.flask.spec.0.template.0.metadata[0].labels.App
+      App = kubernetes_deployment.flask-app.spec.0.template.0.metadata[0].label>
     }
     port {
       node_port   = 30201
@@ -72,3 +68,4 @@ resource "kubernetes_service" "flask-app" {
     type = "NodePort"
   }
 }
+
