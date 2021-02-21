@@ -4,8 +4,9 @@ pipeline{
         terraform 'terraform'
     }
     stages {
-        stage('SCM Checkout'){
+        stage('Clean Workspace and SCM Checkout'){
             steps {
+                cleanWs()
                 checkout scm                
             }
         }
