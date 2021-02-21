@@ -10,6 +10,12 @@ pipeline{
                 checkout scm                
             }
         }
+        
+        stage('Terraform'){
+            steps {
+                bat 'terraform fmt'
+            }
+        }
 
         stage('Terraform Init'){
             steps {
