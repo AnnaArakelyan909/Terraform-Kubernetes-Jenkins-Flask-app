@@ -7,7 +7,7 @@ pipeline{
         stage('SCM Checkout'){
             steps {
                 
-                sh 'git clone https://github.com/jayjay2626/terraform-kubernetes-jenkins-flaskapp.git'
+                sh 'git clone https://github.com/AnnaArakelyan909/Terraform-Kubernetes-Jenkins-Flask-app.git'
             }
         }
         
