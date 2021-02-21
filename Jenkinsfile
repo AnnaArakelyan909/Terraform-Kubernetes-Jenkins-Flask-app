@@ -14,7 +14,7 @@ pipeline{
         stage('Delete and Restart Kind Cluster'){
             steps {
                 
-                sh 'kind create cluster --name terraform-flask-app --config kind-config.yaml'
+                sh 'kind create cluster --name flask-app --config kind-config.yaml'
             }
         }
 
