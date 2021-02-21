@@ -11,9 +11,10 @@ pipeline{
             }
         }
         
-        stage('Terraform'){
+        stage('Delete and Create New Cluster'){
             steps {
-                bat 'terraform fmt'
+                bat 'kind delete cluster --name flask-app'
+                bat 'kind create cluster --name flask-app --config kind-config.yaml'
             }
         }
 
@@ -28,6 +29,12 @@ pipeline{
                 
                 bat 'terraform apply --auto-approve'
             }
+            
+         stage('Info'){
+            steps {
+                
+                bat 'kubectl get all --all-namespaces'
+            }   
         }
         
 
