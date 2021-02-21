@@ -29,6 +29,7 @@ pipeline{
                 
                 bat 'terraform apply --auto-approve'
             }
+        }    
             
          stage('Info'){
             steps {
