@@ -12,8 +12,7 @@ pipeline{
       //  }
         
         stage('Delete and Restart Kind Cluster'){
-            steps {
-                
+            steps {                
                 sh 'kind create cluster --name flask-app --config kind-config.yaml'
             }
         }
