@@ -4,12 +4,11 @@ pipeline{
         terraform 'terraform'
     }
     stages {
-       // stage('SCM Checkout'){
-         //   steps {
-                
-               // sh 'git clone https://github.com/AnnaArakelyan909/Terraform-Kubernetes-Jenkins-Flask-app.git'
-           // }
-      //  }
+        stage('SCM Checkout'){
+            steps {
+                checkout scm                
+            }
+        }
         
         stage('Delete and Restart Kind Cluster'){
             steps {                
