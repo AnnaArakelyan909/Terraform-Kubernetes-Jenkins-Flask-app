@@ -13,9 +13,9 @@ pipeline{
         
         stage('Delete and Create New Cluster'){
             steps {
-                sh 'kind delete cluster --name flask-app'
-                sh 'curl https://raw.githubusercontent.com/hashicorp/learn-terraform-deploy-nginx-kubernetes-provider/master/kind-config.yaml --output kind-config.yaml'
-                sh 'kind create cluster --name flask-app --config kind-config.yaml'
+                bat 'kind delete cluster --name flask-app'
+                bat 'curl https://raw.githubusercontent.com/hashicorp/learn-terraform-deploy-nginx-kubernetes-provider/master/kind-config.yaml --output kind-config.yaml'
+                bat 'kind create cluster --name flask-app --config kind-config.yaml'
             }
         }
 
