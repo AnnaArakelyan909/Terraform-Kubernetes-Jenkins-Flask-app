@@ -19,7 +19,6 @@ pipeline{
 
         stage('Terraform Apply'){
             steps {
-                // bat 'xcopy -i /etc/kubernetes/admin.conf $HOME/'
                 bat 'terraform apply --auto-approve'
             }
         }    
