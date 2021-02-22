@@ -10,13 +10,6 @@ pipeline{
                 checkout scm                
             }
         }
-        
-        stage('Delete and Create New Cluster'){
-            steps {
-                bat 'kind delete cluster --name flask-app'
-                bat 'kind create cluster --name flask-app --config kind-config.yaml'
-            }
-        }
 
         stage('Terraform Init'){
             steps {
