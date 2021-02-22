@@ -13,8 +13,8 @@ pipeline{
         
         stage('Delete and Create New Cluster'){
             steps {
-                bat 'kind delete cluster --name flask-app'
-                bat 'kind create cluster --name flask-app --config kind-config.yaml'
+                // bat 'kind delete cluster --name flask-app'
+                // bat 'kind create cluster --name flask-app --config kind-config.yaml'
             }
         }
 
