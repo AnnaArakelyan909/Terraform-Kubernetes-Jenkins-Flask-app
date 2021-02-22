@@ -33,7 +33,7 @@ resource "kubernetes_deployment" "flask-app" {
           name  = "flask-app"
 
           port {
-            container_port = 80
+            container_port = 50652
           }
 
           resources {
@@ -61,8 +61,8 @@ resource "kubernetes_service" "flask-app" {
     }
     port {
       node_port   = 30201
-      port        = 80
-      target_port = 80
+      port        = 50652
+      target_port = 50652
     }
 
     type = "NodePort"
