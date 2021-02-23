@@ -8,9 +8,9 @@ terraform {
 provider "kubernetes" {
   config_path = "~/.kube/config"  
 }
-resource "kubernetes_deployment" "flask-app" {
+resource "kubernetes_deployment" "flaskapp" {
   metadata {
-    name = "flask-app-deployment"
+    name = "flaskapp"
 
   }
 
@@ -18,19 +18,19 @@ resource "kubernetes_deployment" "flask-app" {
     replicas = 3
     selector {
       match_labels = {
-        App = "flask-app"
+        App = "flaskapp"
       }
     }
     template {
       metadata {
         labels = {
-          App = "flask-app"
+          App = "flaskapp"
         }
       }
       spec {
         container {
           image = "annaarakeyan/case-study-project"
-          name  = "flask-app"
+          name  = "flaskapp"
 
           port {
             container_port = 80
@@ -51,13 +51,13 @@ resource "kubernetes_deployment" "flask-app" {
     }
   }
 }
-resource "kubernetes_service" "flask-app" {
+resource "kubernetes_service" "flaskapp" {
   metadata {
-    name = "flask-app"
+    name = "flaskapp"
   }
   spec {
     selector = {
-      App = kubernetes_deployment.flask-app.spec.0.template.0.metadata[0].labels.App
+      App = kubernetes_deployment.flaskapp.spec.0.template.0.metadata[0].labels.App
     }
     port {
       node_port   = 30201
