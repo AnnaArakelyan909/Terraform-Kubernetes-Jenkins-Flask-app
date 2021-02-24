@@ -33,7 +33,7 @@ resource "kubernetes_deployment" "flaskapp" {
           name  = "flaskapp"
 
           port {
-            container_port = 80
+            container_port = 8085
           }
 
           resources {
