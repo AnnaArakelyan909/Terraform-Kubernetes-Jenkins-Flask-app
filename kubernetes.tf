@@ -29,7 +29,7 @@ resource "kubernetes_deployment" "flaskapp" {
       }
       spec {
         container {
-          image = "annaarakeyan/case-study-project"
+          image = "annaarakeyan/terraform"
           name  = "flaskapp"
 
           port {
@@ -61,8 +61,8 @@ resource "kubernetes_service" "flaskapp" {
     }
     port {
       node_port   = 30201
-      port        = 80
-      target_port = 80
+      port        = 8085
+      target_port = 8085
     }
 
     type = "NodePort"
