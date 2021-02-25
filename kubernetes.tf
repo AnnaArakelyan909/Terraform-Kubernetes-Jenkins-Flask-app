@@ -54,17 +54,6 @@ resource "kubernetes_deployment" "flaskapp" {
           port {
             container_port = 8085
           }
-
-          resources {
-            limits = {
-              cpu    = "0.5"
-              memory = "512Mi"
-            }
-            requests = {
-              cpu    = "250m"
-              memory = "50Mi"
-            }
-          }
         }
       }
     }
