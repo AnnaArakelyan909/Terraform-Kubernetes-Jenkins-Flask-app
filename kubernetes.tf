@@ -48,7 +48,7 @@ resource "kubernetes_deployment" "flaskapp" {
       }
       spec {
         container {
-          image = "annaarakeyan/terraform"
+          image = "annaarakeyan/terraform:latest"
           name  = "flaskapp"
 
           port {
