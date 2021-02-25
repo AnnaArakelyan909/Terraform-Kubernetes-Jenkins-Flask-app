@@ -8,6 +8,20 @@ terraform {
 provider "kubernetes" {
   config_path = "~/.kube/config"  
 }
+
+resource "kubernetes_namespace" "flaskapp" {
+  metadata {
+    annotations = {
+      name = "flaskapp"
+    }
+
+    labels = {
+      App = "ScalableNginxExample"
+    }
+
+    name = "flaskapp"
+  }
+}
 resource "kubernetes_deployment" "flaskapp" {
   
   metadata {
