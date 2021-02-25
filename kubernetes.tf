@@ -9,8 +9,9 @@ provider "kubernetes" {
   config_path = "~/.kube/config"  
 }
 resource "kubernetes_deployment" "flaskapp" {
-  namespace = kubernetes_namespace.flaskapp.metadata.0.name
+  
   metadata {
+    namespace = kubernetes_namespace.flaskapp.metadata.0.name
     name = "flaskapp"
     labels = {
       App = "flaskapp"
