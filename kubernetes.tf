@@ -11,6 +11,9 @@ provider "kubernetes" {
 resource "kubernetes_deployment" "flaskapp" {
   metadata {
     name = "flaskapp"
+    labels = {
+      App = "flaskapp"
+    }
 
   }
 
