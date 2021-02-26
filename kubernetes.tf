@@ -67,8 +67,8 @@ resource "kubernetes_deployment" "flaskapp" {
 }
 resource "kubernetes_service" "flaskapp" {
   metadata {
-    # namespace = kubernetes_namespace.flaskapp.metadata.0.name
-    name = "flaskapp"
+    namespace = kubernetes_namespace.flaskapp.metadata.0.name
+    name = "flask-service"
   }
   spec {
     selector = {
