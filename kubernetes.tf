@@ -1,7 +1,9 @@
 terraform {
   required_providers {
     kubernetes = {
+      load_config_file = "false"
       source = "hashicorp/kubernetes"
+      }
   }
 }
 
