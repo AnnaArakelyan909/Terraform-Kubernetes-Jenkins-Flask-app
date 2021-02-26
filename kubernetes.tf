@@ -1,13 +1,13 @@
 terraform {
   required_providers {
-    kubernetes = {
-      load_config_file = "false"
+    kubernetes = {      
       source = "hashicorp/kubernetes"
       }
   }
 }
 
 provider "kubernetes" {
+  load_config_file = "false"
   config_path = "~/.kube/config"  
 }
 
