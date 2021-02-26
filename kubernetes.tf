@@ -11,6 +11,10 @@ provider "kubernetes" {
   config_path = "~/.kube/config"  
 }
 
+provider "docker" {
+  host = "tcp://localhost:2376"
+}
+
 resource "kubernetes_namespace" "flaskapp" {
   metadata {
     annotations = {
@@ -63,7 +67,7 @@ resource "kubernetes_deployment" "flaskapp" {
 }
 resource "kubernetes_service" "flaskapp" {
   metadata {
-    namespace = kubernetes_namespace.flaskapp.metadata.0.name
+    # namespace = kubernetes_namespace.flaskapp.metadata.0.name
     name = "flaskapp"
   }
   spec {
